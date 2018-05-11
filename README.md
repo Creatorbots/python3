@@ -1,4 +1,4 @@
-Cara Install Self Bot :
+Cara Install SelfBot python3:
 
 ●Ketik -> apt update
 
