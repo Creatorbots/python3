@@ -1,10 +1,15 @@
 Cara Install Self Bot :
 
-●Ketik -> apt update\n
-●Ketik -> apt upgrade\n
-●Ketik -> apt install git\n
-●Ketik -> apt install python3-pip\n
+●Ketik -> apt update
+
+●Ketik -> apt upgrade
+
+●Ketik -> apt install git
+
+●Ketik -> apt install python3-pip
+
 ●Ketik -> pip3 install rsa
+
 ●Ketik -> pip3 install thrift==0.11.0
 ●Ketik -> pip3 install requests
 ●Ketik -> pip3 install bs4
