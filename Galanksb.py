@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+#sᴜᴘᴘᴏʀᴛᴇᴅ ʙʏ:
+#✍͡➴͜Ĝα₤αηĸ͜͡✫
+#●тєαм ѕℓα¢ĸвσт●
 
 from linepy import *
 from datetime import datetime
@@ -21,7 +24,7 @@ galank.log("Channel Token : " + str(channelToken))
 galankMID = galank.profile.mid
 galankProfile = galank.getProfile()
 lineSettings = galank.getSettings()
-oepoll = OEPoll(nadya)
+oepoll = OEPoll(galank)
 #==============================================================================#
 readOpen = codecs.open("read.json","r","utf-8")
 settingsOpen = codecs.open("temp.json","r","utf-8")
@@ -78,21 +81,21 @@ def helpmessage():
     helpMessage = "╔═══════════════" + "\n" + \
                   "╠➣✍͡➴͜Ĝα₤αηĸ͜͡✫" + "\n" + \
                   "║" + "\n" + \
-                  "╠══✪ Help Message ✪══" + "\n" + \
+                  "╠══● Help Message ●══" + "\n" + \
                   "║" + "\n" + \
-                  "╠✪ Help ✪════════" + "\n" + \
+                  "╠● Help ●════════" + "\n" + \
                   "╠➣ Help" + "\n" + \
                   "╠➣ Translate" + "\n" + \
                   "╠➣ Texttospeech" + "\n" + \
                   "║" + "\n" + \
-                  "╠✪ Status ✪════════" + "\n" + \
+                  "╠● Status ●════════" + "\n" + \
                   "╠➣ Restart" + "\n" + \
                   "╠➣ Runtime" + "\n" + \
                   "╠➣ Speed" + "\n" + \
                   "╠➣ Status" + "\n" + \
                   "╠➣ About" + "\n" + \
                   "║" + "\n" + \
-                  "╠✪ Settings ✪═══════" + "\n" + \
+                  "╠● Settings ●═══════" + "\n" + \
                   "╠➣ AutoAdd「On/Off」" + "\n" + \
                   "╠➣ AutoJoin「On/Off」" + "\n" + \
                   "╠➣ AutoLeave「On/Off」" + "\n" + \
@@ -100,7 +103,7 @@ def helpmessage():
                   "╠➣ CheckSticker「On/Off」" + "\n" + \
                   "╠➣ DetectMention「On/Off」" + "\n" + \
                   "║" + "\n" + \
-                  "╠✪ Self ✪═════════" + "\n" + \
+                  "╠● Self ●═════════" + "\n" + \
                   "╠➣ Me" + "\n" + \
                   "╠➣ MyMid" + "\n" + \
                   "╠➣ MyName" + "\n" + \
@@ -118,7 +121,7 @@ def helpmessage():
                   "╠➣ CloneProfile「Mention」" + "\n" + \
                   "╠➣ RestoreProfile" + "\n" + \
                   "║" + "\n" + \
-                  "╠✪ Group ✪════════" + "\n" + \
+                  "╠● Group ●════════" + "\n" + \
                   "╠➣ GroupCreator" + "\n" + \
                   "╠➣ GroupId" + "\n" + \
                   "╠➣ GroupName" + "\n" + \
@@ -131,7 +134,7 @@ def helpmessage():
                   "╠➣ Kill「Mention」" + "\n" + \
                   "╠➣ KickAllMember"+ "\n" + \
                   "║" + "\n" + \
-                  "╠✪ Special ✪═══════" + "\n" + \
+                  "╠● Special ●═══════" + "\n" + \
                   "╠➣ Mimic「On/Off」" + "\n" + \
                   "╠➣ MimicList" + "\n" + \
                   "╠➣ MimicAdd「Mention」" + "\n" + \
@@ -140,7 +143,7 @@ def helpmessage():
                   "╠➣ Lurking「Oɴ/Off/Reset」" + "\n" + \
                   "╠➣ Lurking" + "\n" + \
                   "║" + "\n" + \
-                  "╠✪ Media ✪════════" + "\n" + \
+                  "╠● Media ●════════" + "\n" + \
                   "╠➣ Kalender" + "\n" + \
                   "╠➣ CheckDate「Date」" + "\n" + \
                   "╠➣ InstagramInfo「UserName」" + "\n" + \
@@ -209,7 +212,7 @@ def helptexttospeech():
                          "╠➣ uk : Ukrainian" + "\n" + \
                          "╠➣ vi : Vietnamese" + "\n" + \
                          "╠➣ cy : Welsh" + "\n" + \
-                         "╚══[ Jangan Typo ]" + "\n" + "\n\n" + \
+                         "╚══● Jangan Typo ●" + "\n" + "\n\n" + \
                           "Contoh : say-id Galank Ganteng"
     return helpTextToSpeech
     
@@ -321,7 +324,7 @@ def helptranslate():
                        "╠➣ zu : zulu" + "\n" + \
                        "╠➣ fil : Filipino" + "\n" + \
                        "╠➣ he : Hebrew" + "\n" + \
-                       "╚══[ Jangan Typo ]" + "\n" + "\n\n" + \
+                       "╚══● Jangan Typo ●" + "\n" + "\n\n" + \
                          "Contoh : tr-id Galank Ganteng"
     return helpTranslate
 #==============================================================================#
@@ -424,7 +427,7 @@ def lineBot(op):
                         else: ret_ += "\n╠ Check Sticker ❌"
                         if settings["detectMention"] == True: ret_ += "\n╠ Detect Mention ✅"
                         else: ret_ += "\n╠ Detect Mention ❌"
-                        ret_ += "\n╚══[ Status ]"
+                        ret_ += "\n╚══[ Finish ]"
                         galank.sendMessage(to, str(ret_))
                     except Exception as e:
                         galank.sendMessage(msg.to, str(e))
@@ -537,8 +540,8 @@ def lineBot(op):
                             if mention["M"] not in lists:
                                 lists.append(mention["M"])
                         for ls in lists:
-                            contact = nadya.getContact(ls)
-                            nadya.sendMessage(msg.to, "[ Status Message ]\n{}" + contact.statusMessage)
+                            contact = galank.getContact(ls)
+                            galank.sendMessage(msg.to, "[ Status Message ]\n{}" + contact.statusMessage)
                 elif msg.text.lower().startswith("stealpicture "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
@@ -549,8 +552,8 @@ def lineBot(op):
                             if mention["M"] not in lists:
                                 lists.append(mention["M"])
                         for ls in lists:
-                            path = "http://dl.profile.nadya.naver.jp/" + nadya.getContact(ls).pictureStatus
-                            nadya.sendImageWithURL(msg.to, str(path))
+                            path = "http://dl.profile.galank.naver.jp/" + galank.getContact(ls).pictureStatus
+                            galank.sendImageWithURL(msg.to, str(path))
                 elif msg.text.lower().startswith("stealvideoprofile "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
@@ -561,8 +564,8 @@ def lineBot(op):
                             if mention["M"] not in lists:
                                 lists.append(mention["M"])
                         for ls in lists:
-                            path = "http://dl.profile.nadya.naver.jp/" + nadya.getContact(ls).pictureStatus + "/vp"
-                            nadya.sendImageWithURL(msg.to, str(path))
+                            path = "http://dl.profile.galank.naver.jp/" + galank.getContact(ls).pictureStatus + "/vp"
+                            galank.sendImageWithURL(msg.to, str(path))
                 elif msg.text.lower().startswith("stealcover "):
                     if line != None:
                         if 'MENTION' in msg.contentMetadata.keys()!= None:
@@ -574,8 +577,8 @@ def lineBot(op):
                                 if mention["M"] not in lists:
                                     lists.append(mention["M"])
                             for ls in lists:
-                                path = nadya.getProfileCoverURL(ls)
-                                nadya.sendImageWithURL(msg.to, str(path))
+                                path = galank.getProfileCoverURL(ls)
+                                galank.sendImageWithURL(msg.to, str(path))
                 elif msg.text.lower().startswith("cloneprofile "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
@@ -585,21 +588,21 @@ def lineBot(op):
                             contact = mention["M"]
                             break
                         try:
-                            nadya.cloneContactProfile(contact)
-                            nadya.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
+                            galank.cloneContactProfile(contact)
+                            galank.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
                         except:
-                            nadya.sendMessage(msg.to, "Gagal clone member")
+                            galank.sendMessage(msg.to, "Gagal clone member")
                             
                 elif text.lower() == 'restoreprofile':
                     try:
-                        nadyaProfile.displayName = str(myProfile["displayName"])
-                        nadyaProfile.statusMessage = str(myProfile["statusMessage"])
-                        nadyaProfile.pictureStatus = str(myProfile["pictureStatus"])
-                        nadya.updateProfileAttribute(8, nadyaProfile.pictureStatus)
-                        nadya.updateProfile(nadyaProfile)
-                        nadya.sendMessage(msg.to, "Berhasil restore profile tunggu beberapa saat sampai profile berubah")
+                        galankProfile.displayName = str(myProfile["displayName"])
+                        galankProfile.statusMessage = str(myProfile["statusMessage"])
+                        galankProfile.pictureStatus = str(myProfile["pictureStatus"])
+                        galank.updateProfileAttribute(8, galankProfile.pictureStatus)
+                        galank.updateProfile(galankProfile)
+                        galank.sendMessage(msg.to, "Berhasil restore profile tunggu beberapa saat sampai profile berubah")
                     except:
-                        nadya.sendMessage(msg.to, "Gagal restore profile")
+                        galank.sendMessage(msg.to, "Gagal restore profile")
                         
 #==============================================================================#
                 elif msg.text.lower().startswith("mimicadd "):
@@ -611,10 +614,10 @@ def lineBot(op):
                     for target in targets:
                         try:
                             settings["mimic"]["target"][target] = True
-                            nadya.sendMessage(msg.to,"Target ditambahkan!")
+                            galank.sendMessage(msg.to,"Target ditambahkan!")
                             break
                         except:
-                            nadya.sendMessage(msg.to,"Added Target Fail !")
+                            galank.sendMessage(msg.to,"Added Target Fail !")
                             break
                 elif msg.text.lower().startswith("mimicdel "):
                     targets = []
@@ -625,19 +628,19 @@ def lineBot(op):
                     for target in targets:
                         try:
                             del settings["mimic"]["target"][target]
-                            nadya.sendMessage(msg.to,"Target dihapuskan!")
+                            galank.sendMessage(msg.to,"Target dihapuskan!")
                             break
                         except:
-                            nadya.sendMessage(msg.to,"Deleted Target Fail !")
+                            galank.sendMessage(msg.to,"Deleted Target Fail !")
                             break
                 elif text.lower() == 'mimiclist':
                     if settings["mimic"]["target"] == {}:
-                        nadya.sendMessage(msg.to,"Tidak Ada Target")
+                        galank.sendMessage(msg.to,"Tidak Ada Target")
                     else:
                         mc = "╔══[ Mimic List ]"
                         for mi_d in settings["mimic"]["target"]:
-                            mc += "\n╠ "+nadya.getContact(mi_d).displayName
-                        nadya.sendMessage(msg.to,mc + "\n╚══[ Finish ]")
+                            mc += "\n╠➣ "+nadya.getContact(mi_d).displayName
+                        galank.sendMessage(msg.to,mc + "\n╚══[ Finish ]")
                     
                 elif "mimic" in msg.text.lower():
                     sep = text.split(" ")
@@ -645,54 +648,54 @@ def lineBot(op):
                     if mic == "on":
                         if settings["mimic"]["status"] == False:
                             settings["mimic"]["status"] = True
-                            nadya.sendMessage(msg.to,"Reply Message on")
+                            galank.sendMessage(msg.to,"Reply Message on")
                     elif mic == "off":
                         if settings["mimic"]["status"] == True:
                             settings["mimic"]["status"] = False
-                            nadya.sendMessage(msg.to,"Reply Message off")
+                            galank.sendMessage(msg.to,"Reply Message off")
 #==============================================================================#
                 elif text.lower() == 'groupcreator':
-                    group = nadya.getGroup(to)
+                    group = galank.getGroup(to)
                     GS = group.creator.mid
-                    nadya.sendContact(to, GS)
+                    galank.sendContact(to, GS)
                 elif text.lower() == 'groupid':
-                    gid = nadya.getGroup(to)
-                    nadya.sendMessage(to, "[ID Group : ]\n" + gid.id)
+                    gid = galank.getGroup(to)
+                    galank.sendMessage(to, "[ID Group : ]\n" + gid.id)
                 elif text.lower() == 'grouppicture':
-                    group = nadya.getGroup(to)
+                    group = galank.getGroup(to)
                     path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
-                    nadya.sendImageWithURL(to, path)
+                    galank.sendImageWithURL(to, path)
                 elif text.lower() == 'groupname':
                     gid = nadya.getGroup(to)
-                    nadya.sendMessage(to, "[Nama Group : ]\n" + gid.name)
+                    galank.sendMessage(to, "[Nama Group : ]\n" + gid.name)
                 elif text.lower() == 'groupticket':
                     if msg.toType == 2:
-                        group = nadya.getGroup(to)
+                        group = galank.getGroup(to)
                         if group.preventedJoinByTicket == False:
-                            ticket = nadya.reissueGroupTicket(to)
-                            nadya.sendMessage(to, "[ Group Ticket ]\nhttps://nadya.me/R/ti/g/{}".format(str(ticket)))
+                            ticket = galank.reissueGroupTicket(to)
+                            galank.sendMessage(to, "[ Group Ticket ]\nhttps://galank.me/R/ti/g/{}".format(str(ticket)))
                         else:
-                            nadya.sendMessage(to, "Grup qr tidak terbuka silahkan buka terlebih dahulu dengan perintah {}openqr".format(str(settings["keyCommand"])))
+                            galank.sendMessage(to, "Grup qr tidak terbuka silahkan buka terlebih dahulu dengan perintah {}openqr".format(str(settings["keyCommand"])))
                 elif text.lower() == 'groupticket on':
                     if msg.toType == 2:
-                        group = nadya.getGroup(to)
+                        group = galank.getGroup(to)
                         if group.preventedJoinByTicket == False:
-                            nadya.sendMessage(to, "Grup qr sudah terbuka")
+                            galank.sendMessage(to, "Grup qr sudah terbuka")
                         else:
                             group.preventedJoinByTicket = False
-                            nadya.updateGroup(group)
-                            nadya.sendMessage(to, "Berhasil membuka grup qr")
+                            galank.updateGroup(group)
+                            galank.sendMessage(to, "Berhasil membuka grup qr")
                 elif text.lower() == 'groupticket off':
                     if msg.toType == 2:
-                        group = nadya.getGroup(to)
+                        group = galank.getGroup(to)
                         if group.preventedJoinByTicket == True:
-                            nadya.sendMessage(to, "Grup qr sudah tertutup")
+                            galank.sendMessage(to, "Grup qr sudah tertutup")
                         else:
                             group.preventedJoinByTicket = True
-                            nadya.updateGroup(group)
-                            nadya.sendMessage(to, "Berhasil menutup grup qr")
+                            galank.updateGroup(group)
+                            galank.sendMessage(to, "Berhasil menutup grup qr")
                 elif text.lower() == 'groupinfo':
-                    group = nadya.getGroup(to)
+                    group = galank.getGroup(to)
                     try:
                         gCreator = group.creator.displayName
                     except:
@@ -706,7 +709,7 @@ def lineBot(op):
                         gTicket = "Tidak ada"
                     else:
                         gQr = "Terbuka"
-                        gTicket = "https://nadya.me/R/ti/g/{}".format(str(nadya.reissueGroupTicket(group.id)))
+                        gTicket = "https://galank.me/R/ti/g/{}".format(str(galank.reissueGroupTicket(group.id)))
                     path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
                     ret_ = "╔══[ Group Info ]"
                     ret_ += "\n╠ Nama Group : {}".format(str(group.name))
@@ -717,31 +720,31 @@ def lineBot(op):
                     ret_ += "\n╠ Group Qr : {}".format(gQr)
                     ret_ += "\n╠ Group Ticket : {}".format(gTicket)
                     ret_ += "\n╚══[ Finish ]"
-                    nadya.sendMessage(to, str(ret_))
-                    nadya.sendImageWithURL(to, path)
+                    galank.sendMessage(to, str(ret_))
+                    galank.sendImageWithURL(to, path)
                 elif text.lower() == 'groupmemberlist':
                     if msg.toType == 2:
-                        group = nadya.getGroup(to)
+                        group = galank.getGroup(to)
                         ret_ = "╔══[ Member List ]"
                         no = 0 + 1
                         for mem in group.members:
                             ret_ += "\n╠ {}. {}".format(str(no), str(mem.displayName))
                             no += 1
                         ret_ += "\n╚══[ Total {} ]".format(str(len(group.members)))
-                        nadya.sendMessage(to, str(ret_))
+                        galank.sendMessage(to, str(ret_))
                 elif text.lower() == 'grouplist':
-                        groups = nadya.groups
+                        groups = galank.groups
                         ret_ = "╔══[ Group List ]"
                         no = 0 + 1
                         for gid in groups:
-                            group = nadya.getGroup(gid)
+                            group = galank.getGroup(gid)
                             ret_ += "\n╠ {}. {} | {}".format(str(no), str(group.name), str(len(group.members)))
                             no += 1
                         ret_ += "\n╚══[ Total {} Groups ]".format(str(len(groups)))
-                        nadya.sendMessage(to, str(ret_))
+                        galank.sendMessage(to, str(ret_))
 #==============================================================================#          
                 elif text.lower() == 'mention':
-                    group = nadya.getGroup(msg.to)
+                    group = galank.getGroup(msg.to)
                     nama = [contact.mid for contact in group.members]
                     k = len(nama)//100
                     for a in range(k+1):
@@ -752,8 +755,8 @@ def lineBot(op):
                             b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
                             s += 7
                             txt += u'@Alin \n'
-                        nadya.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
-                        nadya.sendMessage(to, "Total {} Mention".format(str(len(nama))))          
+                        galank.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
+                        galank.sendMessage(to, "Total {} Mention".format(str(len(nama))))          
                 elif text.lower() == 'lurking on':
                     tz = pytz.timezone("Asia/Jakarta")
                     timeNow = datetime.now(tz=tz)
@@ -780,7 +783,7 @@ def lineBot(op):
                             read['ROM'][msg.to] = {}
                             with open('read.json', 'w') as fp:
                                 json.dump(read, fp, sort_keys=True, indent=4)
-                                nadya.sendMessage(msg.to,"Lurking already on")
+                                galank.sendMessage(msg.to,"Lurking already on")
                     else:
                         try:
                             del read['readPoint'][msg.to]
@@ -810,7 +813,7 @@ def lineBot(op):
                         if bln == str(k): bln = bulan[k-1]
                     readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
                     if msg.to not in read['readPoint']:
-                        nadya.sendMessage(msg.to,"Lurking already off")
+                        galank.sendMessage(msg.to,"Lurking already off")
                     else:
                         try:
                             del read['readPoint'][msg.to]
@@ -840,9 +843,9 @@ def lineBot(op):
                             del read["readTime"][msg.to]
                         except:
                             pass
-                        nadya.sendMessage(msg.to, "Reset reading point:\n" + readTime)
+                        galank.sendMessage(msg.to, "Reset reading point:\n" + readTime)
                     else:
-                        nadya.sendMessage(msg.to, "Lurking belum diaktifkan ngapain di reset?")
+                        galank.sendMessage(msg.to, "Lurking belum diaktifkan ngapain di reset?")
                         
                 elif text.lower() == 'lurking':
                     tz = pytz.timezone("Asia/Jakarta")
@@ -880,12 +883,12 @@ def lineBot(op):
                             zxc += pesan2
                         text = xpesan+ zxc + "\n[ Lurking time ]: \n" + readTime
                         try:
-                            nadya.sendMessage(receiver, text, contentMetadata={'MENTION':str('{"MENTIONEES":'+json.dumps(zx2).replace(' ','')+'}')}, contentType=0)
+                            galank.sendMessage(receiver, text, contentMetadata={'MENTION':str('{"MENTIONEES":'+json.dumps(zx2).replace(' ','')+'}')}, contentType=0)
                         except Exception as error:
                             print (error)
                         pass
                     else:
-                        nadya.sendMessage(receiver,"Lurking has not been set.")
+                        galank.sendMessage(receiver,"Lurking has not been set.")
 #==============================================================================#
                 elif msg.text.lower().startswith("say-af "):
                     sep = text.split(" ")
@@ -893,7 +896,7 @@ def lineBot(op):
                     lang = 'af'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
         
                 elif msg.text.lower().startswith("say-sq "):
                     sep = text.split(" ")
@@ -901,7 +904,7 @@ def lineBot(op):
                     lang = 'sq'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-ar "):
                     sep = text.split(" ")
@@ -909,7 +912,7 @@ def lineBot(op):
                     lang = 'ar'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-hy "):
                     sep = text.split(" ")
@@ -917,7 +920,7 @@ def lineBot(op):
                     lang = 'hy'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-bn "):
                     sep = text.split(" ")
@@ -925,7 +928,7 @@ def lineBot(op):
                     lang = 'bn'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-ca "):
                     sep = text.split(" ")
@@ -933,7 +936,7 @@ def lineBot(op):
                     lang = 'ca'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-zh "):
                     sep = text.split(" ")
@@ -941,7 +944,7 @@ def lineBot(op):
                     lang = 'zh'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-zh-cn "):
                     sep = text.split(" ")
@@ -949,7 +952,7 @@ def lineBot(op):
                     lang = 'zh-cn'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-zh-tw "):
                     sep = text.split(" ")
@@ -957,7 +960,7 @@ def lineBot(op):
                     lang = 'zh-tw'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-zh-yue "):
                     sep = text.split(" ")
@@ -965,7 +968,7 @@ def lineBot(op):
                     lang = 'zh-yue'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-hr "):
                     sep = text.split(" ")
@@ -973,7 +976,7 @@ def lineBot(op):
                     lang = 'hr'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-cs "):
                     sep = text.split(" ")
@@ -981,7 +984,7 @@ def lineBot(op):
                     lang = 'cs'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-da "):
                     sep = text.split(" ")
@@ -989,7 +992,7 @@ def lineBot(op):
                     lang = 'da'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-nl "):
                     sep = text.split(" ")
@@ -1005,7 +1008,7 @@ def lineBot(op):
                     lang = 'en'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-en-au "):
                     sep = text.split(" ")
@@ -1013,7 +1016,7 @@ def lineBot(op):
                     lang = 'en-au'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-en-uk "):
                     sep = text.split(" ")
@@ -1021,7 +1024,7 @@ def lineBot(op):
                     lang = 'en-uk'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-en-us "):
                     sep = text.split(" ")
@@ -1029,7 +1032,7 @@ def lineBot(op):
                     lang = 'en-us'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-eo "):
                     sep = text.split(" ")
@@ -1037,7 +1040,7 @@ def lineBot(op):
                     lang = 'eo'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-fi "):
                     sep = text.split(" ")
@@ -1045,7 +1048,7 @@ def lineBot(op):
                     lang = 'fi'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-fr "):
                     sep = text.split(" ")
@@ -1053,7 +1056,7 @@ def lineBot(op):
                     lang = 'fr'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-de "):
                     sep = text.split(" ")
@@ -1061,7 +1064,7 @@ def lineBot(op):
                     lang = 'de'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-el "):
                     sep = text.split(" ")
@@ -1069,7 +1072,7 @@ def lineBot(op):
                     lang = 'el'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-hi "):
                     sep = text.split(" ")
@@ -1077,7 +1080,7 @@ def lineBot(op):
                     lang = 'hi'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-hu "):
                     sep = text.split(" ")
@@ -1085,7 +1088,7 @@ def lineBot(op):
                     lang = 'hu'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-is "):
                     sep = text.split(" ")
@@ -1093,7 +1096,7 @@ def lineBot(op):
                     lang = 'is'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-id "):
                     sep = text.split(" ")
@@ -1101,7 +1104,7 @@ def lineBot(op):
                     lang = 'id'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-it "):
                     sep = text.split(" ")
@@ -1109,7 +1112,7 @@ def lineBot(op):
                     lang = 'it'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-ja "):
                     sep = text.split(" ")
@@ -1117,7 +1120,7 @@ def lineBot(op):
                     lang = 'ja'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-km "):
                     sep = text.split(" ")
@@ -1125,7 +1128,7 @@ def lineBot(op):
                     lang = 'km'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-ko "):
                     sep = text.split(" ")
@@ -1133,7 +1136,7 @@ def lineBot(op):
                     lang = 'ko'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-la "):
                     sep = text.split(" ")
@@ -1141,7 +1144,7 @@ def lineBot(op):
                     lang = 'la'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-lv "):
                     sep = text.split(" ")
@@ -1149,7 +1152,7 @@ def lineBot(op):
                     lang = 'lv'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-mk "):
                     sep = text.split(" ")
@@ -1157,7 +1160,7 @@ def lineBot(op):
                     lang = 'mk'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-no "):
                     sep = text.split(" ")
@@ -1165,7 +1168,7 @@ def lineBot(op):
                     lang = 'no'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-pl "):
                     sep = text.split(" ")
@@ -1173,7 +1176,7 @@ def lineBot(op):
                     lang = 'pl'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-pt "):
                     sep = text.split(" ")
@@ -1181,7 +1184,7 @@ def lineBot(op):
                     lang = 'pt'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-do "):
                     sep = text.split(" ")
@@ -1189,7 +1192,7 @@ def lineBot(op):
                     lang = 'ro'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-ru "):
                     sep = text.split(" ")
@@ -1197,7 +1200,7 @@ def lineBot(op):
                     lang = 'ru'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-sr "):
                     sep = text.split(" ")
@@ -1205,7 +1208,7 @@ def lineBot(op):
                     lang = 'sr'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-si "):
                     sep = text.split(" ")
@@ -1213,7 +1216,7 @@ def lineBot(op):
                     lang = 'si'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-sk "):
                     sep = text.split(" ")
@@ -1221,7 +1224,7 @@ def lineBot(op):
                     lang = 'sk'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-es "):
                     sep = text.split(" ")
@@ -1229,7 +1232,7 @@ def lineBot(op):
                     lang = 'es'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-es-es "):
                     sep = text.split(" ")
@@ -1237,7 +1240,7 @@ def lineBot(op):
                     lang = 'es-es'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-es-us "):
                     sep = text.split(" ")
@@ -1245,7 +1248,7 @@ def lineBot(op):
                     lang = 'es-us'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-sw "):
                     sep = text.split(" ")
@@ -1253,7 +1256,7 @@ def lineBot(op):
                     lang = 'sw'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-sv "):
                     sep = text.split(" ")
@@ -1261,7 +1264,7 @@ def lineBot(op):
                     lang = 'sv'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-ta "):
                     sep = text.split(" ")
@@ -1269,7 +1272,7 @@ def lineBot(op):
                     lang = 'ta'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-th "):
                     sep = text.split(" ")
@@ -1277,7 +1280,7 @@ def lineBot(op):
                     lang = 'th'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-tr "):
                     sep = text.split(" ")
@@ -1285,7 +1288,7 @@ def lineBot(op):
                     lang = 'tr'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-uk "):
                     sep = text.split(" ")
@@ -1293,7 +1296,7 @@ def lineBot(op):
                     lang = 'uk'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-vi "):
                     sep = text.split(" ")
@@ -1301,7 +1304,7 @@ def lineBot(op):
                     lang = 'vi'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
                     
                 elif msg.text.lower().startswith("say-cy "):
                     sep = text.split(" ")
@@ -1309,7 +1312,7 @@ def lineBot(op):
                     lang = 'cy'
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
+                    galank.sendAudio(msg.to,"hasil.mp3")
 #==============================================================================# 
                 elif msg.text.lower().startswith("tr-af "):
                     sep = text.split(" ")
@@ -1317,728 +1320,728 @@ def lineBot(op):
                     translator = Translator()
                     hasil = translator.translate(isi, dest='af')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-sq "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='sq')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-am "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='am')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ar "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ar')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-hy "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='hy')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-az "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='az')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-eu "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='eu')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-be "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='be')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-bn "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='bn')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-bs "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='bs')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-bg "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='bg')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ca "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ca')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ceb "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ceb')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ny "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ny')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-zh-cn "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='zh-cn')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-zh-tw "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='zh-tw')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-co "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='co')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-hr "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='hr')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-cs "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='cs')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-da "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='da')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-nl "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='nl')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-en "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='en')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-et "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='et')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-fi "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='fi')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-fr "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='fr')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-fy "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='fy')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-gl "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='gl')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ka "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ka')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-de "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='de')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-el "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='el')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-gu "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='gu')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ht "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ht')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ha "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ha')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-haw "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='haw')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-iw "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='iw')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-hi "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='hi')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-hmn "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='hmn')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-hu "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='hu')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-is "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='is')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ig "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ig')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-id "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='id')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ga "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ga')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-it "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='it')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ja "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ja')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-jw "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='jw')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-kn "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='kn')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-kk "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='kk')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-km "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='km')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ko "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ko')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ku "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ku')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ky "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ky')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-lo "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='lo')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-la "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='la')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-lv "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='lv')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-lt "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='lt')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-lb "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='lb')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-mk "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='mk')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-mg "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='mg')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ms "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ms')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ml "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ml')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-mt "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='mt')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-mi "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='mi')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-mr "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='mr')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-mn "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='mn')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-my "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='my')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ne "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ne')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-no "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='no')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ps "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ps')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-fa "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='fa')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-pl "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='pl')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-pt "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='pt')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-pa "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='pa')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ro "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ro')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ru "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ru')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-sm "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='sm')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-gd "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='gd')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-sr "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='sr')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-st "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='st')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-sn "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='sn')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-sd "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='sd')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-si "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='si')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-sk "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='sk')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-sl "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='sl')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-so "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='so')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-es "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='es')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-su "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='su')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-sw "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='sw')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-sv "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='sv')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-tg "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='tg')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ta "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ta')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-te "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='te')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-th "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='th')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-tr "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='tr')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-uk "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='uk')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-ur "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='ur')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-uz "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='uz')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-vi "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='vi')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-cy "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='cy')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-xh "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='xh')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-yi "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='yi')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-yo "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='yo')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-zu "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='zu')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-fil "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='fil')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
                 elif msg.text.lower().startswith("tr-he "):
                     sep = text.split(" ")
                     isi = text.replace(sep[0] + " ","")
                     translator = Translator()
                     hasil = translator.translate(isi, dest='he')
                     A = hasil.text
-                    nadya.sendMessage(msg.to, A)
+                    galank.sendMessage(msg.to, A)
 #==============================================================================#   
                 elif text.lower() == 'kalender':
                     tz = pytz.timezone("Asia/Makassar")
@@ -2053,7 +2056,7 @@ def lineBot(op):
                     for k in range(0, len(bulan)):
                         if bln == str(k): bln = bulan[k-1]
                     readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
-                    nadya.sendMessage(msg.to, readTime)                 
+                    galank.sendMessage(msg.to, readTime)                 
                 elif "screenshotwebsite" in msg.text.lower():
                     sep = text.split(" ")
                     query = text.replace(sep[0] + " ","")
@@ -2061,7 +2064,7 @@ def lineBot(op):
                         r = web.get("http://rahandiapi.herokuapp.com/sswebAPI?key=betakey&link={}".format(urllib.parse.quote(query)))
                         data = r.text
                         data = json.loads(data)
-                        nadya.sendImageWithURL(to, data["result"])
+                        galank.sendImageWithURL(to, data["result"])
                 elif "checkdate" in msg.text.lower():
                     sep = msg.text.split(" ")
                     tanggal = msg.text.replace(sep[0] + " ","")
@@ -2074,7 +2077,7 @@ def lineBot(op):
                     ret_ += "\n╠ Birthday : {}".format(str(data["data"]["ultah"]))
                     ret_ += "\n╠ Zodiak : {}".format(str(data["data"]["zodiak"]))
                     ret_ += "\n╚══[ Success ]"
-                    nadya.sendMessage(to, str(ret_))
+                    galank.sendMessage(to, str(ret_))
                 elif "instagraminfo" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
@@ -2100,10 +2103,10 @@ def lineBot(op):
                             ret_ += "\n╠ Total Post : {}".format(format_number(data["user"]["media"]["count"]))
                             ret_ += "\n╚══[ https://www.instagram.com/{} ]".format(search)
                             path = data["user"]["profile_pic_url_hd"]
-                            nadya.sendImageWithURL(to, str(path))
-                            nadya.sendMessage(to, str(ret_))
+                            galank.sendImageWithURL(to, str(path))
+                            galank.sendMessage(to, str(ret_))
                         except:
-                            nadya.sendMessage(to, "Pengguna tidak ditemukan")
+                            galank.sendMessage(to, "Pengguna tidak ditemukan")
                 elif "instagrampost" in msg.text.lower():
                     separate = msg.text.split(" ")
                     user = msg.text.replace(separate[0] + " ","")
@@ -2124,10 +2127,10 @@ def lineBot(op):
                                     r = x.get(page)
                                     url = re.search(r'"video_url": "([^"]+)"', r.text).group(1)
                                     print(url)
-                                    nadya.sendVideoWithURL(msg.to,url)
+                                    galank.sendVideoWithURL(msg.to,url)
                                 else:
                                     print (node['display_src'])
-                                    nadya.sendImageWithURL(msg.to,node['display_src'])
+                                    galank.sendImageWithURL(msg.to,node['display_src'])
                             end_cursor = re.search(r'"end_cursor": "([^"]+)"', r.text).group(1)
                 elif "searchimage" in msg.text.lower():
                     separate = msg.text.split(" ")
@@ -2142,7 +2145,7 @@ def lineBot(op):
                             path = random.choice(items)
                             a = items.index(path)
                             b = len(items)
-                            nadya.sendImageWithURL(to, str(path))
+                            galank.sendImageWithURL(to, str(path))
                 elif "searchyoutube" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
@@ -2160,7 +2163,7 @@ def lineBot(op):
                             ret_ += "\n╠══[ {} ]".format(str(data["title"]))
                             ret_ += "\n╠ https://www.youtube.com{}".format(str(data["href"]))
                         ret_ += "\n╚══[ Total {} ]".format(len(datas))
-                        nadya.sendMessage(to, str(ret_))
+                        galank.sendMessage(to, str(ret_))
                 elif "searchmusic" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
@@ -2176,10 +2179,10 @@ def lineBot(op):
                                 ret_ += "\n╠ Durasi : {}".format(str(song[1]))
                                 ret_ += "\n╠ Link : {}".format(str(song[4]))
                                 ret_ += "\n╚══[ reading Audio ]"
-                                nadya.sendMessage(to, str(ret_))
-                                nadya.sendAudioWithURL(to, song[3])
+                                galank.sendMessage(to, str(ret_))
+                                galank.sendAudioWithURL(to, song[3])
                         except:
-                            nadya.sendMessage(to, "Musik tidak ditemukan")
+                            galank.sendMessage(to, "Musik tidak ditemukan")
                 elif "searchlyric" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
@@ -2202,9 +2205,9 @@ def lineBot(op):
                                 ret_ += "\n╠ Durasi : {}".format(str(song[1]))
                                 ret_ += "\n╠ Link : {}".format(str(song[4]))
                                 ret_ += "\n╚══[ Finish ]\n{}".format(str(lyric))
-                                nadya.sendMessage(to, str(ret_))
+                                galank.sendMessage(to, str(ret_))
                         except:
-                            nadya.sendMessage(to, "Lirik tidak ditemukan")
+                            galank.sendMessage(to, "Lirik tidak ditemukan")
             elif msg.contentType == 7:
                 if settings["checkSticker"] == True:
                     stk_id = msg.contentMetadata['STKID']
@@ -2216,13 +2219,13 @@ def lineBot(op):
                     ret_ += "\n╠ STICKER VERSION : {}".format(stk_ver)
                     ret_ += "\n╠ STICKER URL : line://shop/detail/{}".format(pkg_id)
                     ret_ += "\n╚══[ Finish ]"
-                    nadya.sendMessage(to, str(ret_))
+                    galank.sendMessage(to, str(ret_))
                     
             elif msg.contentType == 13:
                 if settings["copy"] == True:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
-                    groups = nadya.getGroup(msg.to)
+                    groups = galank.getGroup(msg.to)
                     targets = []
                     for s in groups.members:
                         if _name in s.displayName:
@@ -2231,13 +2234,13 @@ def lineBot(op):
                         else:
                             targets.append(copy)
                     if targets == []:
-                        nadya.sendText(msg.to, "Not Found...")
+                        galank.sendText(msg.to, "Not Found...")
                         pass
                     else:
                         for target in targets:
                             try:
-                                nadya.cloneContactProfile(target)
-                                nadya.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
+                                galank.cloneContactProfile(target)
+                                galank.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
                                 settings['copy'] = False
                                 break
                             except:
@@ -2255,32 +2258,32 @@ def lineBot(op):
             receiver = msg.to
             sender = msg._from
             if msg.toType == 0:
-                if sender != nadya.profile.mid:
+                if sender != galank.profile.mid:
                     to = sender
                 else:
                     to = receiver
             else:
                 to = receiver
                 if settings["autoRead"] == True:
-                    nadya.sendChatChecked(to, msg_id)
+                    galank.sendChatChecked(to, msg_id)
                 if to in read["readPoint"]:
                     if sender not in read["ROM"][to]:
                         read["ROM"][to][sender] = True
                 if sender in settings["mimic"]["target"] and settings["mimic"]["status"] == True and settings["mimic"]["target"][sender] == True:
                     text = msg.text
                     if text is not None:
-                        nadya.sendMessage(msg.to,text)
-                if msg.contentType == 0 and sender not in nadyaMID and msg.toType == 2:
+                        galank.sendMessage(msg.to,text)
+                if msg.contentType == 0 and sender not in galankMID and msg.toType == 2:
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                         mentionees = mention['MENTIONEES']
                         lists = []
                         for mention in mentionees:
-                            if nadyaMID in mention["M"]:
+                            if galankMID in mention["M"]:
                                 if settings["detectMention"] == True:
-                                    contact = nadya.getContact(sender)
-                                    nadya.sendMessage(to, "sundala nu")
+                                    contact = galank.getContact(sender)
+                                    galank.sendMessage(to, "sundala nu")
                                     sendMessageWithMention(to, contact.mid)
                                 break
 #==============================================================================#
