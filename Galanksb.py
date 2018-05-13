@@ -10,12 +10,16 @@ from bs4 import BeautifulSoup
 from humanfriendly import format_timespan, format_size, format_number, format_length
 import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, urllib, urllib.parse
 from gtts import gTTS
+import urllib2
+import urllib3
+import tempfile
+import html5lib
 from googletrans import Translator
 #==============================================================================#
 botStart = time.time()
 
 galank = LINE()
-#galank = LINE("TOKEN KAMU")
+galank = LINE("EsuwILvxzOz2YkEcHDp7.Egq9cEqQnOnQf8YrIwoOTW.09w0ft50304IvpWvyvpDmP1eV9EC4Fu6q6GCCDWxUYA=")
 #galank = LINE("Email","Password")
 galank.log("Auth Token : " + str(galank.authToken))
 channelToken = galank.getChannelResult()
