@@ -68,7 +68,7 @@ def backupData():
         return False    
     
 def logError(text):
-    nadya.log("[ ERROR ] " + str(text))
+    galank.log("[ ERROR ] " + str(text))
     time_ = datetime.now()
     with open("errorLog.txt","a") as error:
         error.write("\n[%s] %s" % (str(time), text))
@@ -77,7 +77,7 @@ def sendMessageWithMention(to, mid):
     try:
         aa = '{"S":"0","E":"3","M":'+json.dumps(mid)+'}'
         text_ = '@x '
-        nadya.sendMessage(to, text_, contentMetadata={'MENTION':'{"MENTIONEES":['+aa+']}'}, contentType=0)
+        galank.sendMessage(to, text_, contentMetadata={'MENTION':'{"MENTIONEES":['+aa+']}'}, contentType=0)
     except Exception as error:
         logError(error)
         
