@@ -10,16 +10,16 @@ from bs4 import BeautifulSoup
 from humanfriendly import format_timespan, format_size, format_number, format_length
 import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, urllib, urllib.parse
 from gtts import gTTS
-import urllib2
-import urllib3
-import tempfile
-import html5lib
+#import urllib2
+#import urllib3
+#import tempfile
+#import html5lib
 from googletrans import Translator
 #==============================================================================#
 botStart = time.time()
 
-galank = LINE()
-galank = LINE("EsuwILvxzOz2YkEcHDp7.Egq9cEqQnOnQf8YrIwoOTW.09w0ft50304IvpWvyvpDmP1eV9EC4Fu6q6GCCDWxUYA=")
+#galank = LINE()
+galank = LINE("EsmwP3gECsO7vmjQfA97.Egq9cEqQnOnQf8YrIwoOTW.LdSejC7IISaDPvms2mQ66l/7F34URnwCC1d+IWS+EYA=")
 #galank = LINE("Email","Password")
 galank.log("Auth Token : " + str(galank.authToken))
 channelToken = galank.getChannelResult()
@@ -37,6 +37,54 @@ read = json.load(readOpen)
 settings = json.load(settingsOpen)
 
 
+#==============================================================================#
+settings = {
+    "autoAdd": False,
+    "autoJoin": False,
+    "autoLeave": False,
+    "autoRead": False,
+    "lang":"JP",
+    "detectMention": True,
+    "changeGroupPicture":[],
+    "Sambutan": False,
+    "Sider":{},
+    "checkSticker": False,
+    "userAgent": [
+        "Mozilla/5.0 (X11; U; Linux i586; de; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (X11; U; Linux amd64; rv:5.0) Gecko/20100101 Firefox/5.0 (Debian)",
+        "Mozilla/5.0 (X11; U; Linux amd64; en-US; rv:5.0) Gecko/20110619 Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux) Gecko Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0 FirePHP/0.5",
+        "Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0 Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux x86_64) Gecko Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux ppc; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux AMD64) Gecko Firefox/5.0",
+        "Mozilla/5.0 (X11; FreeBSD amd64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:5.0) Gecko/20110619 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1; rv:6.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1.1; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.2; WOW64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.1; U; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.1; rv:2.0.1) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.0; WOW64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.0; rv:5.0) Gecko/20100101 Firefox/5.0"
+
+read = {
+    "readPoint": {},
+    "readMember": {},
+    "readTime": {},
+    "ROM": {}
+}
+
+
+cctv = {
+    "cyduk":{},
+    "point":{},
+    "MENTION":{},
+    "sidermem":{}
+}
 myProfile = {
 	"displayName": "",
 	"statusMessage": "",
@@ -73,17 +121,82 @@ def logError(text):
     with open("errorLog.txt","a") as error:
         error.write("\n[%s] %s" % (str(time), text))
         
+def sendMention(to, mid, firstmessage, lastmessage):
+    try:
+        arrData = ""
+        text = "%s " %(str(firstmessage))
+        arr = []
+        mention = "@x "
+        slen = str(len(text))
+        elen = str(len(text) + len(mention) - 1)
+        arrData = {'S':slen, 'E':elen, 'M':mid}
+        arr.append(arrData)
+        text += mention + str(lastmessage)
+        line.sendMessage(to, text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+    except Exception as error:
+        logError(error)
+        line.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+
+def sendMessage(to, Message, contentMetadata={}, contentType=0):
+    mes = Message()
+    mes.to, mes._from = to, profile.mid
+    mes.text = text
+    mes.contentType, mes.contentMetadata = contentType, contentMetadata
+    if to not in messageReq:
+        messageReq[to] = -1
+    messageReq[to] += 1
+
 def sendMessageWithMention(to, mid):
     try:
         aa = '{"S":"0","E":"3","M":'+json.dumps(mid)+'}'
         text_ = '@x '
-        galank.sendMessage(to, text_, contentMetadata={'MENTION':'{"MENTIONEES":['+aa+']}'}, contentType=0)
+        line.sendMessage(to, text_, contentMetadata={'MENTION':'{"MENTIONEES":['+aa+']}'}, contentType=0)
     except Exception as error:
         logError(error)
+
+        
+def mentionMembers(to, mid):
+    try:
+        arrData = ""
+        textx = "╔══『Mention {} User』\n╠ ".format(str(len(mid)))
+        arr = []
+        no = 1
+        for i in mid:
+            mention = "@x\n"
+            slen = str(len(textx))
+            elen = str(len(textx) + len(mention) - 1)
+            arrData = {'S':slen, 'E':elen, 'M':i}
+            arr.append(arrData)
+            textx += mention
+            if no < len(mid):
+                no += 1
+                textx += "╠➣ "
+            else:
+                try:
+                    textx += "╚══『 {} 』".format(str(line.getGroup(to).name))
+                except:
+                    pass
+        galank.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+    except Exception as error:
+        logError(error)
+        galank.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+
+def backupData():
+    try:
+        backup = settings
+        f = codecs.open('temp.json','w','utf-8')
+        json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
+        backup = read
+        f = codecs.open('read.json','w','utf-8')
+        json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
+        return True
+    except Exception as error:
+        logError(error)
+        return False
         
 def helpmessage():
     helpMessage = "╔═══════════════" + "\n" + \
-                  "╠➣✍͡➴͜Ĝα₤αηĸ͜͡✫" + "\n" + \
+                  "╠➣TΣΔM SLΔCҜβΩT" + "\n" + \
                   "║" + "\n" + \
                   "╠══● Help Message ●══" + "\n" + \
                   "║" + "\n" + \
@@ -132,6 +245,8 @@ def helpmessage():
                   "╠➣ GroupPicture" + "\n" + \
                   "╠➣ GroupTicket" + "\n" + \
                   "╠➣ GroupTicket「On/Off」" + "\n" + \
+	          "╠➣ Sider「On/Off」" + "\n" + \
+	          "╠➣ Welcome「On/Off」" + "\n" + \
                   "╠➣ GroupList" + "\n" + \
                   "╠➣ GroupMemberList" + "\n" + \
                   "╠➣ GroupInfo" + "\n" + \
@@ -158,7 +273,7 @@ def helpmessage():
                   "╠➣ SearchImage「Search」" + "\n" + \
                   "╠➣ ScreenshootWebsite「LinkUrl」" + "\n" + \
                   "║" + "\n" + \
-                  "╚═➣ Credits By: ✍͡➴͜Ĝα₤αηĸ͜͡✫\nline.me/ti/p/~fuck.you__  "
+                  "╚═➣ Edited reator By: ✍͡➴͜Ĝα₤αηĸ͜͡✫\nline.me/ti/p/~fuck.you__  "
     return helpMessage
     
 def helptexttospeech():
@@ -381,7 +496,7 @@ def lineBot(op):
 #==============================================================================#
                 elif text.lower() == 'speed':
                     start = time.time()
-                    galank.sendMessage(to, "█▒▒▒▒▒▒▒▒▒")
+                    galank.sendMessage(to, "█L▒o▒a▒d▒i▒▒n▒▒g▒")
                     elapsed_time = time.time() - start
                     galank.sendMessage(to,format(str(elapsed_time)))
                 elif text.lower() == 'restart':
@@ -607,7 +722,27 @@ def lineBot(op):
                         galank.sendMessage(msg.to, "Berhasil restore profile tunggu beberapa saat sampai profile berubah")
                     except:
                         galank.sendMessage(msg.to, "Gagal restore profile")
-                        
+                                     #  galank.sendText(receiver, cctv['sidermem'][msg.to])
+
+                elif text.lower() == 'welcome on':
+                   if settings["Sambutan"] == True:
+                       if settings["lang"] == "JP":
+                           galank.sendMessage(msg.to,"Sudah On")
+                   else:
+                       settings["Sambutan"] = True
+                       if settings["lang"] == "JP":
+                           galank.sendMessage(msg.to,"Sambutan Di Aktifkan")
+
+                elif text.lower() == 'welcome off':
+                   if settings["Sambutan"] == False:
+                       if settings["lang"] == "JP":
+                          galank.sendMessage(msg.to,"Sudah Off")
+                   else: 
+                       settings["Sambutan"] = False
+                       if settings["lang"] == "JP":
+                           galank.sendMessage(msg.to,"Sambutan Di Nonaktifkan")
+
+#=============================
 #==============================================================================#
                 elif msg.text.lower().startswith("mimicadd "):
                     targets = []
@@ -748,19 +883,73 @@ def lineBot(op):
                         galank.sendMessage(to, str(ret_))
 #==============================================================================#          
                 elif text.lower() == 'mention':
-                    group = galank.getGroup(msg.to)
-                    nama = [contact.mid for contact in group.members]
-                    k = len(nama)//100
-                    for a in range(k+1):
-                        txt = u''
-                        s=0
-                        b=[]
-                        for i in group.members[a*100 : (a+1)*100]:
-                            b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
-                            s += 7
-                            txt += u'@Alin \n'
-                        galank.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
-                        galank.sendMessage(to, "Total {} Mention".format(str(len(nama))))          
+                            if msg.toType == 0:
+                                sendMention(to, to, "", "")
+                            elif msg.toType == 2:
+                                group = galank.getGroup(to)
+                                contact = [mem.mid for mem in group.members]
+                                ct1, ct2, ct3, ct4, ct5, jml = [], [], [], [], [], len(contact)
+                                if jml <= 100:
+                                    mentionMembers(to, contact)
+                                elif jml > 100 and jml <= 200: 
+                                    for a in range(0, 99):
+                                        ct1 += [contact[a]]
+                                    for b in range(100, jml):
+                                        ct2 += [contact[b]]
+                                    mentionMembers(to, ct1)
+                                    mentionMembers(to, ct2)
+                                elif jml > 200 and jml <= 300:
+                                    for a in range(0, 99):
+                                        ct1 += [contact[a]]
+                                    for b in range(100, 199):
+                                        ct2 += [contact[b]]
+                                    for c in range(200, jml):
+                                        ct3 += [contact[c]]
+                                    mentionMembers(to, ct1)
+                                    mentionMembers(to, ct2)
+                                    mentionMembers(to, ct3)
+                                elif jml > 300 and jml <= 400:
+                                    for a in range(0, 99):
+                                        ct1 += [contact[a]]
+                                    for b in range(100, 199):
+                                        ct2 += [contact[b]]
+                                    for c in range(200, 299):
+                                        ct3 += [contact[c]]
+                                    for d in range(300, jml):
+                                        ct4 += [contact[d]]
+                                    mentionMembers(to, ct1)
+                                    mentionMembers(to, ct2)
+                                    mentionMembers(to, ct3)
+                                    mentionMembers(to, ct4)
+                                elif jml > 400 and jml <= 500:
+                                    for a in range(0, 99):
+                                        ct1 += [contact[a]]
+                                    for b in range(100, 199):
+                                        ct2 += [contact[b]]
+                                    for c in range(200, 299):
+                                        ct3 += [contact[c]]
+                                    for d in range(300, 399):
+                                        ct4 += [contact[d]]
+                                    for e in range(400, jml):
+                                        ct4 += [contact[e]]
+                                    mentionMembers(to, ct1)
+                                    mentionMembers(to, ct2)
+                                    mentionMembers(to, ct3)
+                                    mentionMembers(to, ct4)
+                                    mentionMembers(to, ct5)
+#===================================================================#
+             #===========================================#
+                elif text.lower() == 'changepictureprofile':
+                            settings["changePicture"] = True
+                            galank.sendMessage(to, "Silahkan kirim gambarnya")
+                elif text.lower() == 'changegrouppicture':
+                            if msg.toType == 2:
+                                if to not in settings["changeGroupPicture"]:
+                                    settings["changeGroupPicture"].append(to)
+                                galank.sendMessage(to, "Silahkan kirim gambarnya")
+
+
+#=======================
                 elif text.lower() == 'lurking on':
                     tz = pytz.timezone("Asia/Jakarta")
                     timeNow = datetime.now(tz=tz)
@@ -893,6 +1082,29 @@ def lineBot(op):
                         pass
                     else:
                         galank.sendMessage(receiver,"Lurking has not been set.")
+	                #galank.sendMessage(receiver,"Lurking has not been set.")
+
+                elif text.lower() == 'sider on':
+                    try:
+                        del cctv['point'][msg.to]
+                        del cctv['sidermem'][msg.to]
+                        del cctv['cyduk'][msg.to]
+                    except:
+                        pass
+                    cctv['point'][msg.to] = msg.id
+                    cctv['sidermem'][msg.to] = ""
+                    cctv['cyduk'][msg.to]=True 
+                    settings["Sider"] = True
+                    galank.sendMessage(msg.to,"Cek Sider already on")
+
+                elif text.lower() == 'sider off':
+                    if msg.to in cctv['point']:
+                       cctv['cyduk'][msg.to]=False
+                       settings["Sider"] = False
+                       galank.sendMessage(msg.to,"Cek Sider already off")
+                    else:
+                        galank.sendMessage(msg.to,"Cek Sider already off")
+
 #==============================================================================#
                 elif msg.text.lower().startswith("say-af "):
                     sep = text.split(" ")
@@ -2224,7 +2436,21 @@ def lineBot(op):
                     ret_ += "\n╠ STICKER URL : line://shop/detail/{}".format(pkg_id)
                     ret_ += "\n╚══[ Finish ]"
                     galank.sendMessage(to, str(ret_))
-                    
+                    #galank.sendMessage(to, str(ret_))
+
+            elif msg.contentType == 1:
+                    if settings["changePicture"] == True:
+                        path = galank.downloadObjectMsg(msg_id)
+                        settings["changePicture"] = False
+                        galank.updateProfilePicture(path)
+                        galank.sendMessage(to, "Berhasil mengubah foto profile")
+                    if msg.toType == 2:
+                        if to in settings["changeGroupPicture"]:
+                            path = galank.downloadObjectMsg(msg_id)
+                            settings["changeGroupPicture"].remove(to)
+                            galank.updateGroupPicture(to, path)
+                            galank.sendMessage(to, "Berhasil mengubah foto group")
+
             elif msg.contentType == 13:
                 if settings["copy"] == True:
                     _name = msg.contentMetadata["displayName"]
@@ -2291,6 +2517,95 @@ def lineBot(op):
                                     sendMessageWithMention(to, contact.mid)
                                 break
 #==============================================================================#
+#==============================================================================#
+        if op.type == 26:
+            print ("[ 26 ] RECEIVE MESSAGE")
+            msg = op.message
+            text = msg.text
+            msg_id = msg.id
+            receiver = msg.to
+            sender = msg._from
+            if msg.toType == 0:
+                if sender != line.profile.mid:
+                    to = sender
+                else:
+                    to = receiver
+            else:
+                to = receiver
+                if settings["autoRead"] == True:
+                    line.sendChatChecked(to, msg_id)
+                if to in read["readPoint"]:
+                    if sender not in read["ROM"][to]:
+                        read["ROM"][to][sender] = True
+                if sender in settings["mimic"]["target"] and settings["mimic"]["status"] == True and settings["mimic"]["target"][sender] == True:
+                    text = msg.text
+                    if text is not None:
+                        line.sendMessage(msg.to,text)
+                if msg.contentType == 0 and sender not in lineMID and msg.toType == 2:
+                    if 'MENTION' in msg.contentMetadata.keys()!= None:
+                        names = re.findall(r'@(\w+)', text)
+                        mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                        mentionees = mention['MENTIONEES']
+                        lists = []
+                        for mention in mentionees:
+                            if lineMID in mention["M"]:
+                              if settings["detectMention"] == True:
+                                 sendMention(receiver, sender, "", " \nнα∂ιя вσѕ ")
+
+        if op.type == 17:
+           print ("MEMBER JOIN TO GROUP")
+           if settings["Sambutan"] == True:
+             if op.param2 in lineMID:
+                 return
+             ginfo = galank.getGroup(op.param1)
+             contact = galank.getContact(op.param2)
+             image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
+             galank.sendMessage(op.param1,"Hi " + galank.getContact(op.param2).displayName + "\nWelcome To 『 " + str(ginfo.name) + " 』" + "\njangan lupa tikung \nDan Semoga Betah Disini ye ")
+             galank.sendImageWithURL(op.param1,image)
+
+        if op.type == 15:
+           print ("MEMBER LEAVE TO GROUP")
+           if settings["Sambutan"] == True:
+             if op.param2 in lineMID:
+                 return
+             ginfo = galank.getGroup(op.param1)
+             contact = galank.getContact(op.param2)
+             image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
+             galank.sendImageWithURL(op.param1,image)
+             galank.sendMessage(op.param1,"Good Bye " + galank.getContact(op.param2).displayName + "\nSee You Next Time . . .")
+#==============================================================================#
+        if op.type == 55:
+            print ("[ 55 ] NOTIFIED READ MESSAGE")
+            try:
+                if cctv['cyduk'][op.param1]==True:
+                    if op.param1 in cctv['point']:
+                        Name = galank.getContact(op.param2).displayName
+                        if Name in cctv['sidermem'][op.param1]:
+                            pass
+                        else:
+                            cctv['sidermem'][op.param1] += "\nâ¢ " + Name
+                            if " " in Name:
+                                nick = Name.split(' ')
+                                if len(nick) == 2:
+                                    galank.sendMessage(op.param1, "Wᴏɪɪɪ!!!!! " + "『 " + nick[0] + " 』" + "\nBᴇᴛᴀʜ ᴀᴍᴀᴛ ʟᴏ ᴊᴀᴅɪ sɪᴅᴇʀ \nᴀᴅᴀ ʏᴀɴɢ ɢᴀᴊɪ ʏ ᴊᴀᴅɪ sɪᴅᴇʀ ")
+                                    time.sleep(0.2)
+                                    mentionMembers(op.param1,[op.param2])
+                                else:
+                                    galank.sendMessage(op.param1, "Assᴀʟᴀᴍᴜᴀʟᴀɪᴋᴜᴍ " + "『" + nick[1] + " 』" + "\nnNɢɪɴᴛɪᴘ ᴍᴇʟᴜʟᴜ \nᴍᴇɴᴅɪɴɢ sɪɴɪ \nᴋɪᴛᴀ ɴɢᴇʀᴜᴍᴘɪ ")
+                                    time.sleep(0.2)
+                                    mentionMembers(op.param1,[op.param2])
+                            else:
+                                galank.sendMessage(op.param1, "Nᴀʜʜʜ " + "』 " + Name + " 』" + "\nKᴇᴛᴀᴜᴡᴀɴ ɴɢɪɴᴛɪᴘ \nHᴀʜᴀʜᴀ ")
+                                time.sleep(0.2)
+                                mentionMembers(op.param1,[op.param2])
+                    else:
+                        pass
+                else:
+                    pass
+            except:
+                pass
+
+
         if op.type == 55:
             print ("[ 55 ] NOTIFIED READ MESSAGE")
             try:
