@@ -461,7 +461,7 @@ def lineBot(op):
                 if text.lower() == 'help':
                     helpMessage = helpmessage()
                     line.sendMessage(to, str(helpMessage))
-                    line.sendContact(to, "u0a00a391145594006b682770275d06f0")
+                    line.sendContact(to, "u78643d09e42a36836a17cc918963a8b7")
                 elif text.lower() == 'texttospeech':
                     helpTextToSpeech = helptexttospeech()
                     line.sendMessage(to, str(helpTextToSpeech))
@@ -2562,7 +2562,7 @@ def lineBot(op):
              ginfo = line.getGroup(op.param1)
              contact = line.getContact(op.param2)
              image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
-             line.sendMessage(op.param1,"Hi " + line.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\njangan lupa tikung aim\nDan Semoga Betah Disini ye ^_^")
+             line.sendMessage(op.param1,"Hi " + line.getContact(op.param2).displayName + "\nWelcome To 『 " + str(ginfo.name) + " 』" + "\njangan lupa tikung\nDan Semoga Betah Disini ye")
              line.sendImageWithURL(op.param1,image)
 
         if op.type == 15:
@@ -2574,7 +2574,7 @@ def lineBot(op):
              contact = line.getContact(op.param2)
              image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
              line.sendImageWithURL(op.param1,image)
-             line.sendMessage(op.param1,"Good Bye " + line.getContact(op.param2).displayName + "\nSee You Next Time . . . (p′︵‵。)")
+             line.sendMessage(op.param1,"Good Bye " + line.getContact(op.param2).displayName + "\nSee You Next Time\nSemoga tenang di alam sana")
 #==============================================================================#
         if op.type == 55:
             print ("[ 55 ] NOTIFIED READ MESSAGE")
@@ -2589,15 +2589,15 @@ def lineBot(op):
                             if " " in Name:
                                 nick = Name.split(' ')
                                 if len(nick) == 2:
-                                    line.sendMessage(op.param1, "Wᴏɪɪɪ!!!!! " + "☞ " + nick[0] + " ☜" + "\nBᴇᴛᴀʜ ᴀᴍᴀᴛ ʟᴏ ᴊᴀᴅɪ sɪᴅᴇʀ \nᴀᴅᴀ ʏᴀɴɢ ɢᴀᴊɪ ʏ ᴊᴀᴅɪ sɪᴅᴇʀ ")
+                                    line.sendMessage(op.param1, "Wᴏɪɪɪ!!!!! " + "『 " + nick[0] + " 』" + "\nBᴇᴛᴀʜ ᴀᴍᴀᴛ ʟᴏ ᴊᴀᴅɪ sɪᴅᴇʀ \nᴀᴅᴀ ʏᴀɴɢ ɢᴀᴊɪ ʏ ᴊᴀᴅɪ sɪᴅᴇʀ ")
                                     time.sleep(0.2)
                                     mentionMembers(op.param1,[op.param2])
                                 else:
-                                    line.sendMessage(op.param1, "Assᴀʟᴀᴍᴜᴀʟᴀɪᴋᴜᴍ " + "☞" + nick[1] + " ☜" + "\nnNɢɪɴᴛɪᴘ ᴍᴇʟᴜʟᴜ \nᴍᴇɴᴅɪɴɢ sɪɴɪ \nᴋɪᴛᴀ ɴɢᴇʀᴜᴍᴘɪ ")
+                                    line.sendMessage(op.param1, "Assᴀʟᴀᴍᴜᴀʟᴀɪᴋᴜᴍ " + "『" + nick[1] + " 』" + "\nnNɢɪɴᴛɪᴘ ᴍᴇʟᴜʟᴜ \nᴍᴇɴᴅɪɴɢ sɪɴɪ \nᴋɪᴛᴀ ɴɢᴇʀᴜᴍᴘɪ ")
                                     time.sleep(0.2)
                                     mentionMembers(op.param1,[op.param2])
                             else:
-                                line.sendMessage(op.param1, "Nᴀʜʜʜ " + "☞ " + Name + " ☜" + "\nKᴇᴛᴀᴜᴡᴀɴ ɴɢɪɴᴛɪᴘ \nHᴀʜᴀʜᴀ ")
+                                line.sendMessage(op.param1, "Nᴀʜʜʜ " + "『 " + Name + " 』" + "\nKᴇᴛᴀᴜᴡᴀɴ ɴɢɪɴᴛɪᴘ \nHᴀʜᴀʜᴀ ")
                                 time.sleep(0.2)
                                 mentionMembers(op.param1,[op.param2])
                     else:
