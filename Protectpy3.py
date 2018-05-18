@@ -1,4 +1,12 @@
 # -*- coding: utf-8 -*-
+# KALAU MAU PAKE ASSIST TAMBAHIN SENDIRI MASTAH
+# ki,kk,kc
+# UNTUK ASSIST YANG DI GUNAKAN
+#JANGAN DI JUAL BELIKAN SCRIPT
+# MASTAH JANGAN PELIT
+# sᴜᴘᴘᴏʀᴛᴇᴅ ʙʏ  : 
+# TΣΔM SLΔCҜβΩT
+# OWNER CREATOR : 『✍͡➴͜Ĝα₤αηĸ͜͡✫』
 
 from LINEPY import *
 from akad.ttypes import *
@@ -81,6 +89,7 @@ helpMessage ="""
 ║╠➣ Tes
 ║╠➣ Clear
 ╚═════════════
+line.me/ti/p/~fuck.you__
 """
 oepoll = OEPoll(cl)
 KAC=[cl]
