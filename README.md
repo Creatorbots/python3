@@ -24,7 +24,7 @@ Cara Install SelfBot python3:
 
 ●Ketik -> pip3 install googletrans
 
-●Ketik -> git clone https://github.com/Creatorbots/python3
+●Ketik -> git clone https://github.com/GalankCreator/python3
 
 ●Ketik -> cd python3
 
