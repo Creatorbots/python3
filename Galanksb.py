@@ -510,7 +510,7 @@ def lineBot(op):
                         ret_ += "\n╠══[ About Selfbot ]"
                         ret_ += "\n╠ Version : Test"
                         ret_ += "\n╠ Creator : {}".format(creator.displayName)
-                        ret_ += "\n╚══[ ●тєαм ѕℓα¢ĸвσт● ]"
+                        ret_ += "\n╚══[ ●TΣΔM SLΔCҜβΩT● ]"
                         line.sendMessage(to, str(ret_))
                     except Exception as e:
                         line.sendMessage(msg.to, str(e))
@@ -519,14 +519,14 @@ def lineBot(op):
                     try:
                         ret_ = "╔══[ Status ]"
                        # ret_ = "╔══[ Status ]"
-                        if settings["protect"] == True: ret_ += "\n╠ Protect ✅"
-                        else: ret_ += "\n╠ Protect ❌"
-                        if settings["qrprotect"] == True: ret_ += "\n╠ Qr Protect ✅"
-                        else: ret_ += "\n╠ Qr Protect ❌"
-                        if settings["inviteprotect"] == True: ret_ += "\n╠ Invite Protect ✅"
-                        else: ret_ += "\n╠ Invite Protect ❌"
-                        if settings["cancelprotect"] == True: ret_ += "\n╠ Cancel Protect ✅"
-                        else: ret_ += "\n╠ Cancel Protect ❌"
+                        #if settings["protect"] == True: ret_ += "\n╠ Protect ✅"
+                       # else: ret_ += "\n╠ Protect ❌"
+                       # if settings["qrprotect"] == True: ret_ += "\n╠ Qr Protect ✅"
+                       # else: ret_ += "\n╠ Qr Protect ❌"
+                       # if settings["inviteprotect"] == True: ret_ += "\n╠ Invite Protect ✅"
+                       # else: ret_ += "\n╠ Invite Protect ❌"
+                        #if settings["cancelprotect"] == True: ret_ += "\n╠ Cancel Protect ✅"
+                       # else: ret_ += "\n╠ Cancel Protect ❌"
                         if settings["autoAdd"] == True: ret_ += "\n╠ Auto Add ✅"
                         else: ret_ += "\n╠ Auto Add ❌"
                         if settings["autoJoin"] == True: ret_ += "\n╠ Auto Join ✅"
